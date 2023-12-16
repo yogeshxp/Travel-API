@@ -9,7 +9,8 @@ namespace BusinessLayer.Interface
 {
     public interface IMaterServiceBL
     {
-        Task<List<GetCity>> GetCityDetails(int CityId);
+        Task<List<Cities>> GetAllCities();
+        Task<List<CityDetail>> GetCityDetails(int CityId);
 
     }
 }

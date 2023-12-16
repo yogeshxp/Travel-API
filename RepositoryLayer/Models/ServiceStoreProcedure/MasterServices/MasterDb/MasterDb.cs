@@ -18,6 +18,28 @@ namespace RepositoryLayer.Models.ServiceStoreProcedure.MasterServices.MasterDb
             _context = context;
         }
 
+
+        public virtual async Task<List<GetAllCityResult>> GetAllCityAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new[]
+            {
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<GetAllCityResult>("EXEC @returnValue = [dbo].[GetAllCity]", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+
         public virtual async Task<List<GetCityResult>> GetCityAsync(long? CityId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -43,5 +65,6 @@ namespace RepositoryLayer.Models.ServiceStoreProcedure.MasterServices.MasterDb
 
             return _;
         }
+
     }
 }

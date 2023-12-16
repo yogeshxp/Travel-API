@@ -9,6 +9,7 @@ namespace RepositoryLayer.Interface
 {
     public interface IMasterServiceRL
     {
-        Task<List<GetCity>> GetCityDetails(int CityId);
+        Task<List<CityDetail>> GetCityDetails(int CityId);
+        Task<List<Cities>> GetAllCities();
     }
 }

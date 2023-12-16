@@ -17,7 +17,20 @@ namespace BusinessLayer.Services
             _masterServiceRL = masterServiceRL;
         }
 
-        public Task<List<GetCity>> GetCityDetails(int CityId)
+        public Task<List<Cities>> GetAllCities()
+        {
+            try
+            {
+                return _masterServiceRL.GetAllCities();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public Task<List<CityDetail>> GetCityDetails(int CityId)
         {
             try
             {
