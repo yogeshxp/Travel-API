@@ -5,12 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RepositoryLayer.Models
 {
-    public partial class GetCityResult
+    public partial class GetAllCityResult
     {
         public int CityID { get; set; }
         public string CityName { get; set; }
         public int? StateID { get; set; }
         public string StateName { get; set; }
-        public string cityDetails { get; set; }
+        public int? CountryID { get; set; }
+        public string CountryName { get; set; }
     }
 }

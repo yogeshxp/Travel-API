@@ -17,6 +17,7 @@ namespace RepositoryLayer.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GetCityResult>().HasNoKey();
+            modelBuilder.Entity<GetAllCityResult>().HasNoKey();
 
 
             base.OnModelCreating(modelBuilder);

@@ -8,6 +8,10 @@ namespace RepositoryLayer.Models.ServiceStoreProcedure.MasterServices.IMasterDb
 {
     public interface IMasterDbInterface
     {
+        
+        Task<List<GetAllCityResult>> GetAllCityAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetCityResult>> GetCityAsync(long? CityId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+
+
     }
 }
